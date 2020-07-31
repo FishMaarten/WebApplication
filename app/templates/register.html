@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block container %}
+<div id="container_left"style="font-size: 20px;">
+	<h1>Welcome to GeoSpace!</h1><br>
+	<h2>Plot any place in Flanders</h2>
+	<h2>Register now to get started</h2>
+</div>
+<div id="container_right">
+<form action="" method="post">
+	{{ form["main"].hidden_tag() }}
+	<table id="register_table">
+		<tr><td><h1>Registration</h1></td></tr>
+		<tr>
+			<td>{{ form["main"].first_name.label }}</td>
+			<td>{{ form["main"].sir_name.label }}</td>
+		</tr>
+		<tr>
+			<td>{{ form["main"].first_name(size=18) }}</td>
+			<td>{{ form["main"].sir_name(size=18) }}</td>
+		</tr>
+		<tr>
+			<td>{{ form["main"].email.label }}</td>
+		</tr>
+		<tr>
+			<td colspan="2">{{ form["main"].email(size=44) }}</td>
+		</tr>
+		<tr><td colspan="2"><hr><br><br></td><tr>
+		<tr>
+			<td>{{ form["main"].username.label }}</td>
+		</tr>
+		<tr>
+			<td>{{ form["main"].username(size=18) }}</td>
+		</tr>
+		<tr>
+			<td>{{ form["main"].password.label }}</td>
+			<td>{{ form["main"].password2.label }}</td>
+		</tr>
+		<tr>
+			<td>{{ form["main"].password(size=18) }}</td>
+			<td>{{ form["main"].password2(size=18) }}</td>
+		</tr>
+		<tr>
+			<td>{{ form["main"].submit() }}</td>
+		</tr>
+	</table>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block container %}
+<div id="container_left">
+<form action="" method="post">
+  	{{ form["main"].hidden_tag() }}
+  	<h1>{{ form["main"].header }}</h1>
+	<h3>{{ form["main"].address.label }}<br></h3>
+   	<table>
+		<tr>
+			<td>{{ form["main"].address(size=36) }}{{ form["main"].submit() }}</td>
+		</tr>
+		<tr>
+			<td>
+			{{ form["main"].projection() }}
+			{{ form["main"].surroundings.label}}
+			{{ form["main"].surroundings(checked=True)}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				{{ form["main"].window() }}{{ form["main"].window.label }}
+			</td>
+		</tr>
+	</table>
+	<p>
+		Currently in alpha build!<br>
+		Due to hosting issues our application is limited<br>
+		<br>
+		<b>Available addresses:</b><br>
+		<ul>
+			<li>Sint-Pietersvliet 7 Antwerpen</li>
+			<li>Koningin Astridplein 27 Antwerpen</li>
+			<li>Schoenmarkt 35 Antwerpen</li>
+			<li>Molenstraat 52 Sint-Katelijne-Waver</li>
+			<li>Gemeentestraat 21 Duffel</li>
+		</ul>
+		</p>
+	</form>
+</div>
+<div id="container_right">
+	<img class="image_container"alt="Chart" height="520" width="640"
+		src="{{ url_for('static', filename='plot.png') }}?v={{version}}">
+</div>
+{% endblock %}
